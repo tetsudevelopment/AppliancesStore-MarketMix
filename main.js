@@ -105,7 +105,7 @@ let app = new Vue({
         total: 0,
       },
     ],
-    data: [
+    dataDate: [
       {
         category: "Tv",
         id: "tv01",
@@ -216,7 +216,18 @@ let app = new Vue({
   computed: {},
   methods: {
     filter() {
-      
+      if (this.values == "all") {
+        this.dataAppliances = this.dataDate;
+      } else {
+       let filtros= this.dataDate.filter((element) => {
+            if (element.category == this.values) {
+              return element;
+            } else {
+              console.log("No sirve");
+            }
+       });
+        this.dataAppliances = filtros;
+      }
     }
   },
 });
