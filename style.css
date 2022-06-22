@@ -52,7 +52,39 @@
 }
 
 /* /Header */
+/* main */
+#main .carousel-inner img {
+  height: 650px;
+  object-fit: cover;
+}
 
+@media (max-width: 588px) {
+  #main .carousel-inner img {
+    height: 40vh;
+  }
+}
+
+#carousel {
+  position: relative;
+  filter: grayscale(30%);
+}
+
+#carousel .overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  z-index: 1;
+}
+
+#carousel .overlay .container,
+#carousel .overlay .row {
+  height: 100%;
+}
+/* /main */
 /* Cards */
 
 .row-text .col {
