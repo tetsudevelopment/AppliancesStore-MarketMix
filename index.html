@@ -21,27 +21,99 @@
   <div id="app">
     <!-- HEADER -->
     <header id="header">
-      <nav id="navbar" class="navbar navbar-expand-lg bg-dark navbar-dark">
+      <nav id="navbar" class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top mb-5">
         <div class="container">
           <a class="navbar-brand" href="">
             <img src="./assets/images/logo.png" alt="logo" style="height: 50px; width: 50px;">
-            <span class="ms-1">Electrodomesticos Marin</span>
+            <span class="ms-1">Electrodomesticos Marin </span>
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item btn">
-                <img src="assets/images/LogoCarro.png" alt="" >
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex d-inline ">
+              <li class="nav-item text-end" type="button">
+                 <img src="assets/images/LogoCarro.png" alt="" >
+                <span class="badge text-bg-secondary" v-text="length"></span>
               </li>
             </ul>
           </div>
         </div>
       </nav>
     </header>
-    <!-- HEADER -->
+    <!-- /HEADER -->
+    <section class="mt-5">
+      <span>a</span>
+    </section>
+    <!-- SELECT -->
+    <section class="container mt-5 text-center">
+      <span class="h4">Filtrar por categorías</span>
+      <select class="form-select mt-3 text-center" aria-label="Default select example">
+        <option selected>Todos</option>
+        <option value="1">Televisores</option>
+        <option value="2">Freidoras de aire</option>
+        <option value="3">Neveras</option>
+        <option value="4">Lavadoras</option>
+      </select>
+    </section>
+    <!-- /SELECT -->
+    <!-- CARDS -->
+    <section class="mt-5 mb-5">
+      <div class="container">
+        <div class="row row-text mb-4 p-0 ">
+          <div class="col text-uppercase p-3 text-center ">
+            <small class="h5 fw-bold">Productos</small>
+          </div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-md-6 col-lg-3 col mb-4">
+                <div class="card col h-100">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col text-center btn" data-bs-toggle="modal" data-bs-target="">
+                        <img src="" class="card-img-top card-img1 mb-2 mt-3" alt="">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body text-center">
+                    <h5 class="card-title">Nombre del producto</h5>
+                  </div>
+                  <!-- Ingresar cantidad -->
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col text-center">
+                        <p class="text-center fw-bold">Cantidad</p>
+                      </div>
+                      <div class="input-group mb-3">
+                        <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/menos.png" alt=""></button>
+                        <input type="number" class="form-control rounded text-center" placeholder=""
+                          aria-label="Example text with button addon" aria-describedby="button-addon1" >
+                        <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/mas.png" alt=""></button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /Ingresar Cantidad -->
+                  <div class="card-footer">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col text-center">
+                          <button type="button" class="btn btn-hamburger"> Agregar</button>
+            
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+            </div>
+          
+        </div>
+      </div>
+    </section>
+    <!-- /CARDS -->
 
   </div>
 
