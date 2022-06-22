@@ -1,11 +1,13 @@
-:root{
+:root {
   --textColor: #FFFFFF;
-  --primary:#39a2f8;
+  --primary: #39a2f8;
   --secundary: #2e88d2;
 }
+
 * {
   font-family: 'Oswald', sans-serif;
 }
+
 /* modales */
 #modal-content-h {
   background-color: var(--hamburguesa);
@@ -16,44 +18,39 @@
   background-color: var(--hotDog);
   color: #FFFFFF;
 }
+
 .modal-body-image {
   background-color: #FFFFFF;
   margin: 30px;
   padding: 50px;
   border-radius: 4%;
 }
+
 .modal-body img {
   height: 200px;
   width: 200px;
   display: block;
   margin: auto;
 }
-#login {
-  color: var(--textColor);
-}
 
-#login label {
-  color: black;
-}
 
-#login img {
-  width: 150px;
-  height: 150px;
-}
 /* /modales */
 
 /* Header */
-#header nav{
+#header nav {
   background: var(--primary) !important;
   color: var(--textColor);
 }
-#header img{
+
+#header img {
   width: 50px;
   height: 50px;
 }
-#header span{
+
+#header span {
   font-weight: bold;
 }
+
 /* /Header */
 
 /* Cards */
@@ -63,16 +60,24 @@
   color: var(--textColor);
   font-weight: bolder;
 }
-.card-img1{
+
+.card-img1 {
   height: 190px;
   width: 190px;
 }
-#button-image img{
+
+#button-image img {
   height: 20px;
 }
-.btn-btn{
+
+.btn-btn {
   background: var(--primary);
   font-weight: bold;
+}
+
+#modal-content{
+  background: var(--secundary);
+  color: var(--textColor);
 }
 /* Cards*/
 
@@ -81,4 +86,5 @@
   color: white;
   text-decoration: none;
 }
+
 /* /Footer */

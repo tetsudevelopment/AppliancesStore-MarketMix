@@ -51,12 +51,12 @@
     <!-- SELECT -->
     <section class="container mt-5 text-center">
       <span class="h4">Filtrar por categorías</span>
-      <select class="form-select mt-3 text-center" aria-label="Default select example">
-        <option selected>Todos</option>
-        <option value="Tv">Televisores</option>
-        <option value="Air fryers">Freidoras de aire</option>
-        <option value="Fridge">Neveras</option>
-        <option value="Washing machine">Lavadoras</option>
+      <select class="form-select mt-3 text-center fw-bold" aria-label="Default select example">
+        <option selected class="fw-bold">Todos</option>
+        <option value="Tv" class="fw-bold">Televisores</option>
+        <option value="Air fryers" class="fw-bold">Freidoras de aire</option>
+        <option value="Fridge" class="fw-bold">Neveras</option>
+        <option value="Washing machine" class="fw-bold">Lavadoras</option>
       </select>
     </section>
     <!-- /SELECT -->
@@ -74,7 +74,7 @@
                 <div class="card col h-100">
                   <div class="container">
                     <div class="row">
-                      <div class="col text-center btn" data-bs-toggle="modal" data-bs-target="">
+                      <div class="col text-center btn" data-bs-toggle="modal" :data-bs-target="item.idModal">
                         <img :src="item.img" class="card-img-top card-img1 mb-1 mt-3" :alt="item.name">
                       </div>
                     </div>
@@ -91,7 +91,7 @@
                       <div class="input-group mb-3">
                         <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/menos.png" alt=""></button>
                         <input type="number" class="form-control rounded text-center" placeholder=""
-                          aria-label="Example text with button addon" aria-describedby="button-addon1" >
+                          aria-label="Example text with button addon" aria-describedby="button-addon1" v-model="item.cant" >
                         <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/mas.png" alt=""></button>
                       </div>
                     </div>
@@ -114,6 +114,82 @@
       </div>
     </section>
     <!-- /CARDS -->
+
+    <!-- MODAL -->
+    <!-- Electrodomesticos-->
+    <section id="hamburguesa-modal">
+      <div class="container" v-for="item in dataAppliances">
+        <!-- Modal hamburger Mega Stacker -->
+        <div class="modal fade" :id="item.id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content" id="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" v-text="item.name"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body text-center" id=" modal-body-h">
+                <div class="modal-body-image">
+                  <img :src="item.img" :alt="item.name">
+                </div>
+              </div>
+              <div class="modal-footer">
+                <div class="container">
+                  <div class="row">
+                    <div class="col">
+                      <h5 id="ingredients">Ingredientes:</h5>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <p v-text="item.description"></p>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <h4 v-text="item.price"></h4>
+                        </div>
+                      </div>
+                      <!-- Ingresar cantidad -->
+                      <div class="container-fluid mb-2">
+                        <div class="row">
+                          <div class="col text-center">
+                            <p class="text-center fw-bold">Cantidad</p>
+                          </div>
+                          <div class="input-group mb-3">
+                            <button class="btn btn-outline " type="button" id="button-image"><img
+                                src="assets/images/menos.png" alt="" @click=""></button>
+                            <input type="number" class="form-control rounded text-center" placeholder=""
+                              aria-label="Example text with button addon" aria-describedby="button-addon1"
+                              v-model="item.cant">
+                            <button class="btn btn-outline " type="button" id="button-image"><img
+                                src="assets/images/mas.png" alt="" @click=""></button>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /Ingresar cantidad -->
+                      <!-- Botón Agregar -->
+                      <div class="container">
+                        <div class="row">
+                          <div class="col text-center mt-3">
+                            <button type="button" class="btn btn-outline-light btn-lg" @click="">
+                              Agregar</button>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /Botón Agregar -->
+                    </div>
+                  </div>
+                </div>
+    
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /Hamburguesa Mega Stacker -->
+      </div>
+    
+    
+    </section>
+    <!-- /electrodmesticos -->
+    <!-- /MODAL -->
 
   </div>
 
