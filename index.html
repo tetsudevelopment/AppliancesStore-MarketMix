@@ -43,9 +43,11 @@
       </nav>
     </header>
     <!-- /HEADER -->
+    <!-- Espacio -->
     <section class="mt-5">
       <span>a</span>
     </section>
+    <!-- /ESPACIO -->
     <!-- SELECT -->
     <section class="container mt-5 text-center">
       <span class="h4">Filtrar por categorías</span>
@@ -68,17 +70,17 @@
         </div>
         <div class="container">
             <div class="row justify-content-center">
-              <div class="col-md-6 col-lg-3 col mb-4">
+              <div class="col-md-6 col-lg-3 col mb-4" v-for="item in dataAppliances">
                 <div class="card col h-100">
                   <div class="container">
                     <div class="row">
                       <div class="col text-center btn" data-bs-toggle="modal" data-bs-target="">
-                        <img src="" class="card-img-top card-img1 mb-1 mt-3" alt="">
+                        <img :src="item.img" class="card-img-top card-img1 mb-1 mt-3" :alt="item.name">
                       </div>
                     </div>
                   </div>
                   <div class="card-body text-center">
-                    <h5 class="card-title">Nombre del producto</h5>
+                    <h5 class="card-title" v-text="item.name"></h5>
                   </div>
                   <!-- Ingresar cantidad -->
                   <div class="container-fluid">
@@ -99,7 +101,7 @@
                     <div class="container">
                       <div class="row">
                         <div class="col text-center">
-                          <button type="button" class="btn btn-hamburger"> Agregar</button>
+                          <button type="button" class="btn btn-btn"> Agregar</button>
             
                         </div>
                       </div>
@@ -107,9 +109,7 @@
                   </div>
                 </div>
               </div>
-            
             </div>
-          
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 :root{
   --textColor: #FFFFFF;
   --primary:#39a2f8;
+  --secundary: #2e88d2;
 }
 * {
   font-family: 'Oswald', sans-serif;
@@ -58,7 +59,7 @@
 /* Cards */
 
 .row-text .col {
-  background-color: var(--primary);
+  background-color: var(--secundary);
   color: var(--textColor);
   font-weight: bolder;
 }
@@ -68,6 +69,10 @@
 }
 #button-image img{
   height: 20px;
+}
+.btn-btn{
+  background: var(--primary);
+  font-weight: bold;
 }
 /* Cards*/
 
