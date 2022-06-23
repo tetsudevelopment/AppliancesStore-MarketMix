@@ -129,10 +129,10 @@
                         <p class="text-center fw-bold">Cantidad</p>
                       </div>
                       <div class="input-group mb-3">
-                        <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/menos.png" alt=""></button>
+                        <button class="btn btn-outline " type="button" id="button-image" @click="cant(item,0)"><img src="assets/images/menos.png" alt=""></button>
                         <input type="number" class="form-control rounded text-center" placeholder=""
                           aria-label="Example text with button addon" aria-describedby="button-addon1" v-model="item.cant" >
-                        <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/mas.png" alt=""></button>
+                        <button class="btn btn-outline " type="button" id="button-image" @click="cant(item,1)"><img src="assets/images/mas.png" alt=""></button>
                       </div>
                     </div>
                   </div>
@@ -141,7 +141,7 @@
                     <div class="container">
                       <div class="row">
                         <div class="col text-center">
-                          <button type="button" class="btn btn-btn"> Agregar</button>
+                          <button type="button" class="btn btn-btn" @click="agg(item)"> Agregar</button>
             
                         </div>
                       </div>
@@ -194,12 +194,12 @@
                             <p class="text-center fw-bold">Cantidad</p>
                           </div>
                           <div class="input-group mb-3">
-                            <button class="btn btn-outline " type="button" id="button-image"><img
+                            <button class="btn btn-outline " type="button" id="button-image" @click="cant(item,0)"><img
                                 src="assets/images/menos.png" alt="" @click=""></button>
                             <input type="number" class="form-control rounded text-center" placeholder=""
                               aria-label="Example text with button addon" aria-describedby="button-addon1"
                               v-model="item.cant">
-                            <button class="btn btn-outline " type="button" id="button-image"><img
+                            <button class="btn btn-outline " type="button" id="button-image" @click="cant(item,1)"><img
                                 src="assets/images/mas.png" alt="" @click=""></button>
                           </div>
                         </div>
@@ -209,7 +209,7 @@
                       <div class="container">
                         <div class="row">
                           <div class="col text-center mt-3">
-                            <button type="button" class="btn btn-outline-light btn-lg" @click="">
+                            <button type="button" class="btn btn-outline-light btn-lg" @click="agg(item)">
                               Agregar</button>
                           </div>
                         </div>
@@ -250,21 +250,21 @@
                   <th scope="col">Precio Total</th>
                 </tr>
               </thead>
-              <tbody v-if="dataTable>0">
-                <tr>
-                  <th><img src="" alt="" style="height: 50px; width: 50px;"></th>
-                  <th scope="row"></th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td class="border"><button class="btn btn-primary" @click="" type="button">Eliminar</button></td>
+              <tbody v-if="dataTable.length>0">
+                <tr v-for="(item, index) in dataTable">
+                  <th><img :src="item.img" :alt="item.name" style="height: 50px; width: 50px;"></th>
+                  <th scope="row">{{item.cant}}</th>
+                  <td v-text="item.name"></td>
+                  <td>${{item.price}}</td>
+                  <td>${{item.total=item.cant*item.price}}</td>
+                  <td class="border"><button class="btn btn-danger" @click="deleteProduct(index)" type="button" @click="deleteProduct(index)">Eliminar</button></td>
                 </tr>
                 <tr>
                   <th class="text-center">Total</th>
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td></td>
+                  <td>${{totall}}</td>
                 </tr>
               </tbody>
               <tbody v-else>
@@ -277,7 +277,7 @@
               </tbody>
             </table>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @click="">Cancelar</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @click="cancel">Cancelar</button>
               <button type="button" class="btn btn-primary" @click="">Comprar</button>
             </div>
           </div>
@@ -285,6 +285,27 @@
       </div>
     </div>
     <!-- /Carrito de compras -->
+
+    <!-- Comprar -->
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Metodos de pago</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Comprar -->
     <!-- /MODAL -->
 
   </div>

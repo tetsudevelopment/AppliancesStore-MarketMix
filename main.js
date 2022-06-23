@@ -212,22 +212,76 @@ let app = new Vue({
     dataTable: [],
     length: 0,
     values: "all",
+    total: 0,
   },
-  computed: {},
+  computed: {
+    totall() {
+      let total = this.total;
+      this.dataTable.forEach((element) => {
+        return (total += element.total);
+      });
+      return total;
+    },
+  },
   methods: {
     filter() {
       if (this.values == "all") {
         this.dataAppliances = this.dataDate;
       } else {
-       let filtros= this.dataDate.filter((element) => {
-            if (element.category == this.values) {
-              return element;
-            } else {
-              console.log("No sirve");
-            }
-       });
+        let filtros = this.dataDate.filter((element) => {
+          if (element.category == this.values) {
+            return element;
+          }
+        });
         this.dataAppliances = filtros;
       }
-    }
+    },
+    cant(item, value) {
+      if (value == 0) {
+        if (item.cant > 0) {
+          item.cant--;
+        } else {
+          console.log("Seleccione uno ole");
+          return (item.cant = 0);
+        }
+      } else {
+        item.cant++;
+      }
+    },
+    agg(item) {
+      if (item.cant == 0) {
+        return alert("Seleccioné la cantidad que desea comprar");
+      } else if (this.dataTable.length === 0) {
+        console.log("Entro en el else-if");
+        this.dataTable.push(item);
+      } else {
+        let index = this.dataTable.indexOf(item);
+        if (index === -1) {
+          this.dataTable.push(item);
+        } else {
+          this.dataTable.forEach((element) => {
+            if (element.id === item.id) {
+              console.log("Entro en el if");
+              let index = this.dataTable.indexOf(element);
+              this.dataTable[index].element.cant = item.cant;
+            }
+          });
+        }
+      }
+      this.length = this.dataTable.length;
+    },
+    deleteProduct: function (index) {
+      this.dataTable.splice(index, 1);
+      this.length = this.dataTable.length;
+    },
+    cancel() {
+      if (this.dataTable > 0) {
+        this.dataTable = [];
+        alert("Se ha cancelado el pedido");
+        this.length = this.dataTable.length;
+      } else {
+        console.log("Salir");
+      }
+    },
   },
 });
