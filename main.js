@@ -213,6 +213,7 @@ let app = new Vue({
     length: 0,
     values: "all",
     total: 0,
+    pago:0,
   },
   computed: {
     totall() {
@@ -281,6 +282,19 @@ let app = new Vue({
         this.length = this.dataTable.length;
       } else {
         console.log("Salir");
+      }
+    },
+    buy() {
+      alert('No tiene productos que comprar')
+    },
+    toBuy() {
+      if (this.pago == 0) {
+        alert('seleccione un metodo de pago')
+      } else {
+        alert("Tu compra a sido exitosa ");
+        this.pago = 0;
+        this.dataTable = [];
+        this.length = this.dataTable.length;
       }
     },
   },
