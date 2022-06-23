@@ -84,9 +84,9 @@
     <!-- SELECT -->
     <section class="container mt-5 text-center">
       <span class="h4">Filtrar por categorías</span>
-      <div class="row">
-        <div class="col">
-        <select class="form-select mt-3 text-center fw-bold" aria-label="Default select example" v-model="values">
+      <div class="row justify-content-center">
+        <div class="col-6">
+        <select class="form-select mt-3 text-center fw-bold" aria-label="Default select example" v-model="values" @click="filter">
           <option selected class="fw-bold" value="all">Todos</option>
           <option value="Tv" class="fw-bold">Televisores</option>
           <option value="Air fryers" class="fw-bold">Freidoras de aire</option>
@@ -94,10 +94,6 @@
           <option value="Washing machine" class="fw-bold">Lavadoras</option>
         </select>
         </div>
-        <div class="col text-start p-3">
-         <button type="button" class="btn btn-primary" @click="filter">Filtrar datos</button>
-        </div>
-        
       </div>
       
     </section>
@@ -290,7 +286,6 @@
     <!-- /Carrito de compras -->
 
     <!-- Comprar -->
-    <!-- Modal -->
     <div class="modal fade" id="pagos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">

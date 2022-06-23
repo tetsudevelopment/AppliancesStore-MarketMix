@@ -271,7 +271,7 @@ let app = new Vue({
       }
       this.length = this.dataTable.length;
     },
-    deleteProduct: function (index) {
+    deleteProduct(index) {
       this.dataTable.splice(index, 1);
       this.length = this.dataTable.length;
     },
